@@ -18,6 +18,7 @@ SIM_ARGS=
 TESTBENCH = tb_$(COMPONENT).sv
 TBOUTPUT = $(COMPONENT).vcd	#THIS NEEDS TO MATCH THE OUTPUT FILE
 							#FROM YOUR TESTBENCH
+BINARY = bin_$(COMPONENT)
 ###############################################################################
 # BE CAREFUL WHEN CHANGING ITEMS BELOW THIS LINE
 ###############################################################################
@@ -35,7 +36,7 @@ SOUTPUT = -lxt2		#SIMULATOR OUTPUT TYPE
 #MAKE DIRECTIVES
 .PHONY: compile simulate display clean
 compile : $(TESTBENCH) $(SRC)
-	$(COMPILER) $(COFLAGS) -o $(COMPONENT) $(TESTBENCH) $(SRC)
+	$(COMPILER) $(COFLAGS) -o $(BINARY) $(TESTBENCH) $(SRC)
 
 simulate: $(COMPONENT)
 	$(SIMULATOR) $(SFLAGS) $(COMPONENT) $(TESTBENCH) $(SOUTPUT)
@@ -44,4 +45,4 @@ display: $(TBOUTPUT)
 	$(VIEWER) $(TBOUTPUT) &
 
 clean:
-	/bin/rm -f $(COMPONENT) $(TBOUTPUT) a.out compiler.out
+	/bin/rm -f $(BINARY) $(TBOUTPUT) a.out compiler.out
