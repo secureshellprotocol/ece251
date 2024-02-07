@@ -30,13 +30,15 @@ module four_to_one (
     // ---------------- MODULE DESIGN IMPLEMENTATION ----------------
     //
 	always @(*) begin
-		case(s)
-			2'b00:		z1 = d[0];
-			2'b01:		z1 = d[1];
-			2'b10:		z1 = d[2];
-			2'b11:		z1 = d[3];
-			default:	z1 = d[0];
-		endcase
+		if(en == 1) begin
+			case(s)
+				2'b00:		z1 = d[0];
+				2'b01:		z1 = d[1];
+				2'b10:		z1 = d[2];
+				2'b11:		z1 = d[3];
+				default:	z1 = d[0];
+			endcase
+		end
 	end
 endmodule
 

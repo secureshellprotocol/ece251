@@ -35,7 +35,7 @@ module tb_four_to_one;
 	end
 
     initial begin
-        $monitor ($time,"ns, select:s=%b, inputs:d=%b, output:z1=%b", S, D, Z1);
+        $monitor ($time,"ns, select:s=%b, inputs:d=%b, output:z1=%b, enable:en=%b", S, D, Z1, EN);
     end
 
     initial begin : dump_variables
