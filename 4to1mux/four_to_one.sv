@@ -22,6 +22,7 @@ module four_to_one (
 	input [3:0] d,
 	input [1:0] s,
   	input en,
+	input clk,
 
 	output reg z1);
 
@@ -29,8 +30,8 @@ module four_to_one (
     //
     // ---------------- MODULE DESIGN IMPLEMENTATION ----------------
     //
-	always @(*) begin
-		if(en == 1) begin
+	always @(posedge clk) begin
+		if(en) begin
 			case(s)
 				2'b00:		z1 = d[0];
 				2'b01:		z1 = d[1];
@@ -38,6 +39,8 @@ module four_to_one (
 				2'b11:		z1 = d[3];
 				default:	z1 = d[0];
 			endcase
+		end else begin
+			z1 = 1'bz;
 		end
 	end
 endmodule
