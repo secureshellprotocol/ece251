@@ -18,8 +18,8 @@ module dff
 			q  <= d;
 			qn <= ~d;
 		end else begin
-			q <= z;
-			qn <= z;
+			q <= 'dz;
+			qn <='dz;
 		end
 	end
 endmodule
