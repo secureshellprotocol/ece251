@@ -17,6 +17,9 @@ module dff
 		end else if (en) begin
 			q  <= d;
 			qn <= ~d;
+		end else begin
+			q <= z;
+			qn <= z;
 		end
 	end
 endmodule
