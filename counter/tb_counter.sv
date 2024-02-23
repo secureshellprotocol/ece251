@@ -24,7 +24,7 @@ module tb_counter;
 
     initial begin
 //        $monitor ($time,"\tCLK=%b EN=%b RST=%b Z1=%b", CLK, RST, EN, Z1);
-        $monitor ($time,"\tCLK=%b EN=%b RST=%b Z1=%04b_%04b_%04b_%04b_%04b_%04b_%04b_%04b", CLK, RST, EN, Z1[31:28], Z1[27:24], Z1[23:20], Z1[19:16], Z1[15:12], Z1[11:8], Z1[7:4], Z1[3:0]);
+        $monitor ($time,"\tCLK=%b RST=%b EN=%b Z1=%04b_%04b_%04b_%04b_%04b_%04b_%04b_%04b", CLK, RST, EN, Z1[31:28], Z1[27:24], Z1[23:20], Z1[19:16], Z1[15:12], Z1[11:8], Z1[7:4], Z1[3:0]);
 //        $display("0x%04h_%04h_%04h_%04h", d[63:48], d[47:32], d[31:16], d[15:0]);
     end
 
