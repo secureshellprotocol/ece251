@@ -1,3 +1,6 @@
 [submodule "HW2-component-catalog"]
 	path = HW2-component-catalog
 	url = git@github.com:cooper-union-ece-251-marano/take-one-for-your-verilog-catalog-secureshellprotocol.git
+[submodule "inclass_pset/ece251TA"]
+	path = inclass_pset/ece251TA
+	url = git@github.com:fred13kim/ece251TA.git
