@@ -47,7 +47,6 @@ main:
     move $a1, $s1
     jal swap
 
-exit:
     lw $s2, 0($a0)
     lw $s3, 0($a1)
 
