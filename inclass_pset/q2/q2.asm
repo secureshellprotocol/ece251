@@ -1,3 +1,5 @@
+#	Question 2
+
 .data
 ### Setup Strings ###
     newline: .asciiz "\n"
@@ -76,7 +78,26 @@ main:
 
 ### Your code for Q2 goes here ###
 swap:
-	add	$t0, $zero, $a0
-	add	$a0, $zero, $a1
-	add	$a1, $zero, $t0
+	# alloc stack pointers
+	addi	$sp, $sp, -8
+	sw	$t0, 4($sp)
+	sw	$t1, 0($sp)
+	
+	# This works, but it moves the addresses around
+ 	# rather than moving the actual data around. So
+	# its not the same thing.
+	#add	$t0, $zero, $a0
+	#add	$a0, $zero, $a1
+	#add	$a1, $zero, $t0
+
+	lw	$t0, 0($a0) # copy whatevers in a0 to t0
+	lw	$t1, 0($a1) # copy whatevers in a1 to t1
+	sw	$t1, 0($a0) # store whatevers in t1 to a0
+	sw	$t0, 0($a1) # store whatevers in t0 to a1
+
+	# dealloc and return
+	lw	$t0, 4($sp)
+	lw	$t1, 0($sp)
+	addi	$sp, $sp, 8
+
 	jr $ra
